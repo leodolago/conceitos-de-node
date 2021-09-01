@@ -77,7 +77,7 @@ app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
     return response.status(404).json({ error: "Todo don't exists "})
   }
 
-  todo.title - title;
+  todo.title = title;
   todo.deadline = new Date(deadline);
 
   return response.json(todo);
@@ -106,7 +106,7 @@ app.delete('/todos/:id', checksExistsUserAccount, (request, response) => {
 
   const todo = user.todos.findIndex(todo => todo.id === id );
 
-  if (!todo === -1) {
+  if (todo === -1) {
     return response.status(404).json({ error: "Todo don't exists "})
   }
 
